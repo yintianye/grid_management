@@ -2,6 +2,7 @@ package com.tencent.wxcloudrun.service;
 
 import com.tencent.wxcloudrun.dao.FamilyInfoMapper;
 import com.tencent.wxcloudrun.model.FamilyInfo;
+import com.tencent.wxcloudrun.model.FamilyInfoExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,11 @@ public class FamilyService {
     @Autowired
     private FamilyInfoMapper familyInfoMapper;
 
-    public List<FamilyInfo> getFamilyInfoList(Integer floorId) {
-        return familyInfoMapper.selectAll().stream().filter(info -> floorId.equals(info.getFloorId())).collect(Collectors.toList());
+    public List<FamilyInfo> getFamilyInfoList(Integer unitId) {
+        FamilyInfoExample example = new FamilyInfoExample();
+        if (unitId != null) example.createCriteria().andUnitIdEqualTo(unitId);
+
+        return familyInfoMapper.selectByExample(example);
     }
 
     public boolean addFamilyInfo(FamilyInfo info) {

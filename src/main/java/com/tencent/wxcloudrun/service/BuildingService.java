@@ -2,6 +2,7 @@ package com.tencent.wxcloudrun.service;
 
 import com.tencent.wxcloudrun.dao.BuildingInfoMapper;
 import com.tencent.wxcloudrun.model.BuildingInfo;
+import com.tencent.wxcloudrun.model.BuildingInfoExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,10 @@ public class BuildingService {
     private BuildingInfoMapper buildingInfoMapper;
 
     public List<BuildingInfo> getBuildInfoList(Integer gridId) {
-        return buildingInfoMapper.selectAll().stream().filter(info -> gridId.equals(info.getGridId())).collect(Collectors.toList());
+        BuildingInfoExample example = new BuildingInfoExample();
+        if (gridId != null) example.createCriteria().andGridIdEqualTo(gridId);
+
+        return buildingInfoMapper.selectByExample(example);
     }
 
     public boolean addBuildingInfo(BuildingInfo info) {

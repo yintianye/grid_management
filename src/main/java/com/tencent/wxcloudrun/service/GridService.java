@@ -2,6 +2,7 @@ package com.tencent.wxcloudrun.service;
 
 import com.tencent.wxcloudrun.dao.GridInfoMapper;
 import com.tencent.wxcloudrun.model.GridInfo;
+import com.tencent.wxcloudrun.model.GridInfoExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class GridService {
     private GridInfoMapper gridInfoMapper;
 
     public List<GridInfo> getGridInfoList() {
-        return gridInfoMapper.selectAll();
+        return gridInfoMapper.selectByExample(new GridInfoExample());
     }
 
     public boolean addGridInfo(GridInfo gridInfo) {
