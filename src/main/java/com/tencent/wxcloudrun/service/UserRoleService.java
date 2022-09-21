@@ -7,6 +7,7 @@ import com.tencent.wxcloudrun.dao.UserInfoMapper;
 import com.tencent.wxcloudrun.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,8 +47,9 @@ public class UserRoleService {
     public UserInfo queryUserInfoByOpenId(String openId) {
         UserInfoExample example = new UserInfoExample();
         example.createCriteria().andOpenIdEqualTo(openId);
+        List<UserInfo> userInfoList = userInfoMapper.selectByExample(example);
 
-        return userInfoMapper.selectByExample(example).get(0);
+        return ObjectUtils.isEmpty(userInfoList) ? null : userInfoList.get(0);
     }
 
     public boolean submitUserInfo(UserInfo userInfo) {
