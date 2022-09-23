@@ -6,6 +6,8 @@ import com.tencent.wxcloudrun.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/user-role")
 public class UserRoleController {
@@ -17,12 +19,17 @@ public class UserRoleController {
         return ApiResponse.ok(userRoleService.queryCommitteeInfoList());
     }
 
-    @GetMapping("/party-branch-list")
-    public ApiResponse queryPartyBranchList(@RequestParam("committeeId") Integer committeeId) {
-        return ApiResponse.ok(userRoleService.queryPartyBranchList(committeeId));
+    @GetMapping("/community-list")
+    public ApiResponse queryCommunityList(@RequestParam("committeeId") Integer committeeId) {
+        return ApiResponse.ok(userRoleService.queryCommunityInfoList(committeeId));
     }
 
-    @GetMapping("/grid_list")
+    @GetMapping("/party-branch-list")
+    public ApiResponse queryPartyBranchList(@RequestParam("communityId") Integer communityId) {
+        return ApiResponse.ok(userRoleService.queryPartyBranchList(communityId));
+    }
+
+    @GetMapping("/grid-list")
     public ApiResponse queryGridList(@RequestParam("partyBranchId") Integer partyBranchId) {
         return ApiResponse.ok(userRoleService.queryGridInfoList(partyBranchId));
     }

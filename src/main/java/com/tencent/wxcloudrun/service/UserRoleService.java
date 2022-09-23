@@ -1,9 +1,6 @@
 package com.tencent.wxcloudrun.service;
 
-import com.tencent.wxcloudrun.dao.CommitteeInfoMapper;
-import com.tencent.wxcloudrun.dao.GridInfoMapper;
-import com.tencent.wxcloudrun.dao.PartyBranchInfoMapper;
-import com.tencent.wxcloudrun.dao.UserInfoMapper;
+import com.tencent.wxcloudrun.dao.*;
 import com.tencent.wxcloudrun.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +15,9 @@ public class UserRoleService {
     private CommitteeInfoMapper committeeInfoMapper;
 
     @Autowired
+    private CommunityInfoMapper communityInfoMapper;
+
+    @Autowired
     private PartyBranchInfoMapper partyBranchInfoMapper;
 
     @Autowired
@@ -30,9 +30,16 @@ public class UserRoleService {
         return committeeInfoMapper.selectByExample(new CommitteeInfoExample());
     }
 
-    public List<PartyBranchInfo> queryPartyBranchList(Integer committeeId) {
-        PartyBranchInfoExample example = new PartyBranchInfoExample();
+    public List<CommunityInfo> queryCommunityInfoList(Integer committeeId) {
+        CommunityInfoExample example = new CommunityInfoExample();
         if (committeeId != null) example.createCriteria().andCommitteeIdEqualTo(committeeId);
+
+        return communityInfoMapper.selectByExample(example);
+    }
+
+    public List<PartyBranchInfo> queryPartyBranchList(Integer communityId) {
+        PartyBranchInfoExample example = new PartyBranchInfoExample();
+        if (communityId != null) example.createCriteria().andCommunityIdEqualTo(communityId);
 
         return partyBranchInfoMapper.selectByExample(example);
     }
