@@ -324,63 +324,63 @@ public class FamilyInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andUnitIdIsNull() {
-            addCriterion("unit_id is null");
+        public Criteria andFloorIdIsNull() {
+            addCriterion("floor_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andUnitIdIsNotNull() {
-            addCriterion("unit_id is not null");
+        public Criteria andFloorIdIsNotNull() {
+            addCriterion("floor_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUnitIdEqualTo(Integer value) {
-            addCriterion("unit_id =", value, "unitId");
+        public Criteria andFloorIdEqualTo(Integer value) {
+            addCriterion("floor_id =", value, "floorId");
             return (Criteria) this;
         }
 
-        public Criteria andUnitIdNotEqualTo(Integer value) {
-            addCriterion("unit_id <>", value, "unitId");
+        public Criteria andFloorIdNotEqualTo(Integer value) {
+            addCriterion("floor_id <>", value, "floorId");
             return (Criteria) this;
         }
 
-        public Criteria andUnitIdGreaterThan(Integer value) {
-            addCriterion("unit_id >", value, "unitId");
+        public Criteria andFloorIdGreaterThan(Integer value) {
+            addCriterion("floor_id >", value, "floorId");
             return (Criteria) this;
         }
 
-        public Criteria andUnitIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("unit_id >=", value, "unitId");
+        public Criteria andFloorIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("floor_id >=", value, "floorId");
             return (Criteria) this;
         }
 
-        public Criteria andUnitIdLessThan(Integer value) {
-            addCriterion("unit_id <", value, "unitId");
+        public Criteria andFloorIdLessThan(Integer value) {
+            addCriterion("floor_id <", value, "floorId");
             return (Criteria) this;
         }
 
-        public Criteria andUnitIdLessThanOrEqualTo(Integer value) {
-            addCriterion("unit_id <=", value, "unitId");
+        public Criteria andFloorIdLessThanOrEqualTo(Integer value) {
+            addCriterion("floor_id <=", value, "floorId");
             return (Criteria) this;
         }
 
-        public Criteria andUnitIdIn(List<Integer> values) {
-            addCriterion("unit_id in", values, "unitId");
+        public Criteria andFloorIdIn(List<Integer> values) {
+            addCriterion("floor_id in", values, "floorId");
             return (Criteria) this;
         }
 
-        public Criteria andUnitIdNotIn(List<Integer> values) {
-            addCriterion("unit_id not in", values, "unitId");
+        public Criteria andFloorIdNotIn(List<Integer> values) {
+            addCriterion("floor_id not in", values, "floorId");
             return (Criteria) this;
         }
 
-        public Criteria andUnitIdBetween(Integer value1, Integer value2) {
-            addCriterion("unit_id between", value1, value2, "unitId");
+        public Criteria andFloorIdBetween(Integer value1, Integer value2) {
+            addCriterion("floor_id between", value1, value2, "floorId");
             return (Criteria) this;
         }
 
-        public Criteria andUnitIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("unit_id not between", value1, value2, "unitId");
+        public Criteria andFloorIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("floor_id not between", value1, value2, "floorId");
             return (Criteria) this;
         }
     }

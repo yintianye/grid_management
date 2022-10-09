@@ -62,6 +62,15 @@
                enableDeleteByPrimaryKey="false"
                enableDeleteByExample="false"
         />
+        <table tableName="apartment_info"
+               enableInsert="true"
+               enableSelectByPrimaryKey="true"
+               enableSelectByExample="true"
+               enableUpdateByPrimaryKey="true"
+               enableUpdateByExample="false"
+               enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false"
+        />
         <table tableName="building_info"
                enableInsert="true"
                enableSelectByPrimaryKey="true"
@@ -72,6 +81,15 @@
                enableDeleteByExample="false"
         />
         <table tableName="unit_info"
+               enableInsert="true"
+               enableSelectByPrimaryKey="true"
+               enableSelectByExample="true"
+               enableUpdateByPrimaryKey="true"
+               enableUpdateByExample="false"
+               enableDeleteByPrimaryKey="false"
+               enableDeleteByExample="false"
+        />
+        <table tableName="floor_info"
                enableInsert="true"
                enableSelectByPrimaryKey="true"
                enableSelectByExample="true"

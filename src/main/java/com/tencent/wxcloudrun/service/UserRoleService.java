@@ -11,45 +11,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserRoleService {
-    @Autowired
-    private CommitteeInfoMapper committeeInfoMapper;
-
-    @Autowired
-    private CommunityInfoMapper communityInfoMapper;
-
-    @Autowired
-    private PartyBranchInfoMapper partyBranchInfoMapper;
-
-    @Autowired
-    private GridInfoMapper gridInfoMapper;
 
     @Autowired
     private UserInfoMapper userInfoMapper;
-
-    public List<CommitteeInfo> queryCommitteeInfoList() {
-        return committeeInfoMapper.selectByExample(new CommitteeInfoExample());
-    }
-
-    public List<CommunityInfo> queryCommunityInfoList(Integer committeeId) {
-        CommunityInfoExample example = new CommunityInfoExample();
-        if (committeeId != null) example.createCriteria().andCommitteeIdEqualTo(committeeId);
-
-        return communityInfoMapper.selectByExample(example);
-    }
-
-    public List<PartyBranchInfo> queryPartyBranchList(Integer communityId) {
-        PartyBranchInfoExample example = new PartyBranchInfoExample();
-        if (communityId != null) example.createCriteria().andCommunityIdEqualTo(communityId);
-
-        return partyBranchInfoMapper.selectByExample(example);
-    }
-
-    public List<GridInfo> queryGridInfoList(Integer partyBranchId) {
-        GridInfoExample example = new GridInfoExample();
-        if (partyBranchId != null) example.createCriteria().andPartyBranchIdEqualTo(partyBranchId);
-
-        return gridInfoMapper.selectByExample(example);
-    }
 
     public UserInfo queryUserInfoByOpenId(String openId) {
         UserInfoExample example = new UserInfoExample();
