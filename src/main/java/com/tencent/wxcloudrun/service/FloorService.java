@@ -1,7 +1,9 @@
 package com.tencent.wxcloudrun.service;
 
 import com.tencent.wxcloudrun.dao.FloorInfoMapper;
+import com.tencent.wxcloudrun.model.FamilyInfoExample;
 import com.tencent.wxcloudrun.model.FloorInfo;
+import com.tencent.wxcloudrun.model.FloorInfoExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,10 @@ public class FloorService {
     private FloorInfoMapper floorInfoMapper;
 
     public List<FloorInfo> getFloorInfoList(Integer buildingId) {
-        return floorInfoMapper.selectAll().stream().filter(info -> buildingId.equals(info.getBuildingId())).collect(Collectors.toList());
+        FloorInfoExample example = new FloorInfoExample();
+        if (buildingId != null) example.createCriteria().andUnitIdEqualTo(buildingId); //FIXME.
+
+        return floorInfoMapper.selectByExample(example);
     }
 
     public boolean addFloorInfo(FloorInfo info) {

@@ -16,7 +16,7 @@ public class FamilyService {
 
     public List<FamilyInfo> getFamilyInfoList(Integer unitId) {
         FamilyInfoExample example = new FamilyInfoExample();
-        if (unitId != null) example.createCriteria().andUnitIdEqualTo(unitId);
+        if (unitId != null) example.createCriteria().andFloorIdEqualTo(unitId); //FIXME.
 
         return familyInfoMapper.selectByExample(example);
     }
