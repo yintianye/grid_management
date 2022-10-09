@@ -16,7 +16,7 @@ public class BuildingService {
 
     public List<BuildingInfo> getBuildInfoList(Integer gridId) {
         BuildingInfoExample example = new BuildingInfoExample();
-        if (gridId != null) example.createCriteria().andGridIdEqualTo(gridId);
+        if (gridId != null) example.createCriteria().andApartmentIdEqualTo(gridId);//FIXME.
 
         return buildingInfoMapper.selectByExample(example);
     }
