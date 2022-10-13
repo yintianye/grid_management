@@ -21,4 +21,9 @@ public class DepartmentManagementController {
     public ApiResponse queryDepartmentOptions(@RequestBody DepartmentNode departmentNode) {
         return ApiResponse.ok(departmentManagementService.queryOptionList(departmentNode));
     }
+
+    @PostMapping("/summary")
+    public ApiResponse queryDepartmentSummary(@RequestBody DepartmentNode departmentNode) {
+        return ApiResponse.ok(departmentManagementService.queryDepartmentSummary(departmentNode));
+    }
 }

@@ -2,8 +2,8 @@ package com.tencent.wxcloudrun.service;
 
 import com.tencent.wxcloudrun.dao.*;
 import com.tencent.wxcloudrun.entity.deparment.DepartmentNode;
+import com.tencent.wxcloudrun.entity.deparment.DepartmentSummary;
 import com.tencent.wxcloudrun.model.*;
-import org.apache.tomcat.util.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -161,4 +161,49 @@ public class DepartmentManagementService {
 
         return familyInfoMapper.selectByExample(example);
     }
+
+
+    public DepartmentSummary queryDepartmentSummary(DepartmentNode node) {
+        DepartmentSummary summary = new DepartmentSummary();
+
+        List<FamilyInfo> familyInfoList = familyInfoMapper.selectByExample(generateFamilyInfoExample(node));
+
+        int familyCount = familyInfoList.size();
+        int personCount = 0;
+        int partyCount = 0;
+        int lowIncomeCount = 0;
+        int solitudeCount = 0;
+
+        for (FamilyInfo familyInfo : familyInfoList) {
+            personCount += familyInfo.getPersonCount();
+            if ("T".equals(familyInfo.getPartyFlag())) partyCount++;
+            if ("T".equals(familyInfo.getLowIncomeFlag())) lowIncomeCount++;
+            if ("T".equals(familyInfo.getSolitudeFlag())) solitudeCount++;
+        }
+
+        summary.setFamilyCount(familyCount);
+        summary.setPersonCount(personCount);
+        summary.setPartyFamilyCount(partyCount);
+        summary.setLowIncomeFamilyCount(lowIncomeCount);
+        summary.setSolitudeFamilyCount(solitudeCount);
+
+        return summary;
+    }
+
+    public FamilyInfoExample generateFamilyInfoExample(DepartmentNode node) {
+        FamilyInfoExample example = new FamilyInfoExample();
+        FamilyInfoExample.Criteria criteria = example.createCriteria();
+
+        if (node.getCommitteeId() != null) criteria.andCommitteeIdEqualTo(node.getCommitteeId());
+        if (node.getCommunityId() != null) criteria.andCommunityIdEqualTo(node.getCommunityId());
+        if (node.getPartyBranchId() != null) criteria.andPartyBranchIdEqualTo(node.getPartyBranchId());
+        if (node.getGridId() != null) criteria.andGridIdEqualTo(node.getGridId());
+        if (node.getApartmentId() != null) criteria.andApartmentIdEqualTo(node.getApartmentId());
+        if (node.getBuildingId() != null) criteria.andBuildingIdEqualTo(node.getBuildingId());
+        if (node.getUnitId() != null) criteria.andUnitIdEqualTo(node.getUnitId());
+        if (node.getFloorId() != null) criteria.andFloorIdEqualTo(node.getFloorId());
+
+        return example;
+    }
+
 }
