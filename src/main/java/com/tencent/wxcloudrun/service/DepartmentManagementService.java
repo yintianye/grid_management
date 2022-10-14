@@ -3,6 +3,7 @@ package com.tencent.wxcloudrun.service;
 import com.tencent.wxcloudrun.dao.*;
 import com.tencent.wxcloudrun.entity.deparment.DepartmentNode;
 import com.tencent.wxcloudrun.entity.deparment.DepartmentSummary;
+import com.tencent.wxcloudrun.entity.deparment.FamilyNode;
 import com.tencent.wxcloudrun.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -99,6 +100,39 @@ public class DepartmentManagementService {
         }
 
         return false;
+    }
+
+    public boolean createFamily(FamilyNode node) {
+        FamilyInfo familyInfo = new FamilyInfo();
+        familyInfo.setName(node.getName());
+        familyInfo.setPersonCount(Integer.parseInt(node.getPersonCount()));
+        familyInfo.setPartyFlag(node.getPartyFlag());
+        familyInfo.setLowIncomeFlag(node.getLowIncomeFlag());
+        familyInfo.setSolitudeFlag(node.getSolitudeFlag());
+        familyInfo.setFloorId(node.getFloorId());
+        familyInfo.setFloorName(node.getFloorName());
+        familyInfo.setUnitId(node.getUnitId());
+        familyInfo.setUnitName(node.getUnitName());
+        familyInfo.setBuildingId(node.getBuildingId());
+        familyInfo.setBuildingName(node.getBuildingName());
+        familyInfo.setApartmentId(node.getApartmentId());
+        familyInfo.setApartmentName(node.getApartmentName());
+        familyInfo.setGridId(node.getGridId());
+        familyInfo.setGridName(node.getGridName());
+        familyInfo.setPartyBranchId(node.getPartyBranchId());
+        familyInfo.setPartyBranchName(node.getPartyBranchName());
+        familyInfo.setCommunityId(node.getCommunityId());
+        familyInfo.setCommunityName(node.getCommunityName());
+        familyInfo.setCommitteeId(node.getCommitteeId());
+        familyInfo.setCommitteeName(node.getCommitteeName());
+        familyInfo.setMasterName(node.getMasterName());
+        familyInfo.setMasterPhone(node.getMasterPhone());
+
+        return familyInfoMapper.insert(familyInfo) == 1;
+    }
+
+    public FamilyInfo queryFamilyInfo(Integer familyId) {
+        return familyInfoMapper.selectByPrimaryKey(familyId);
     }
 
     public Object queryOptionList(DepartmentNode node) {

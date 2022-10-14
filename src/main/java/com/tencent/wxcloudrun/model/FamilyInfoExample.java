@@ -1633,6 +1633,146 @@ public class FamilyInfoExample {
             addCriterion("committee_name not between", value1, value2, "committeeName");
             return (Criteria) this;
         }
+
+        public Criteria andMasterNameIsNull() {
+            addCriterion("master_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameIsNotNull() {
+            addCriterion("master_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameEqualTo(String value) {
+            addCriterion("master_name =", value, "masterName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameNotEqualTo(String value) {
+            addCriterion("master_name <>", value, "masterName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameGreaterThan(String value) {
+            addCriterion("master_name >", value, "masterName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameGreaterThanOrEqualTo(String value) {
+            addCriterion("master_name >=", value, "masterName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameLessThan(String value) {
+            addCriterion("master_name <", value, "masterName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameLessThanOrEqualTo(String value) {
+            addCriterion("master_name <=", value, "masterName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameLike(String value) {
+            addCriterion("master_name like", value, "masterName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameNotLike(String value) {
+            addCriterion("master_name not like", value, "masterName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameIn(List<String> values) {
+            addCriterion("master_name in", values, "masterName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameNotIn(List<String> values) {
+            addCriterion("master_name not in", values, "masterName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameBetween(String value1, String value2) {
+            addCriterion("master_name between", value1, value2, "masterName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterNameNotBetween(String value1, String value2) {
+            addCriterion("master_name not between", value1, value2, "masterName");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneIsNull() {
+            addCriterion("master_phone is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneIsNotNull() {
+            addCriterion("master_phone is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneEqualTo(String value) {
+            addCriterion("master_phone =", value, "masterPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneNotEqualTo(String value) {
+            addCriterion("master_phone <>", value, "masterPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneGreaterThan(String value) {
+            addCriterion("master_phone >", value, "masterPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneGreaterThanOrEqualTo(String value) {
+            addCriterion("master_phone >=", value, "masterPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneLessThan(String value) {
+            addCriterion("master_phone <", value, "masterPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneLessThanOrEqualTo(String value) {
+            addCriterion("master_phone <=", value, "masterPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneLike(String value) {
+            addCriterion("master_phone like", value, "masterPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneNotLike(String value) {
+            addCriterion("master_phone not like", value, "masterPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneIn(List<String> values) {
+            addCriterion("master_phone in", values, "masterPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneNotIn(List<String> values) {
+            addCriterion("master_phone not in", values, "masterPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneBetween(String value1, String value2) {
+            addCriterion("master_phone between", value1, value2, "masterPhone");
+            return (Criteria) this;
+        }
+
+        public Criteria andMasterPhoneNotBetween(String value1, String value2) {
+            addCriterion("master_phone not between", value1, value2, "masterPhone");
+            return (Criteria) this;
+        }
     }
 
     /**

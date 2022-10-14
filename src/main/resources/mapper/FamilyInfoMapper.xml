@@ -28,6 +28,8 @@
     <result column="community_name" jdbcType="VARCHAR" property="communityName" />
     <result column="committee_id" jdbcType="INTEGER" property="committeeId" />
     <result column="committee_name" jdbcType="VARCHAR" property="committeeName" />
+    <result column="master_name" jdbcType="VARCHAR" property="masterName" />
+    <result column="master_phone" jdbcType="VARCHAR" property="masterPhone" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -70,7 +72,7 @@
     id, name, person_count, party_flag, low_income_flag, solitude_flag, floor_id, floor_name, 
     unit_id, unit_name, building_id, building_name, apartment_id, apartment_name, grid_id, 
     grid_name, party_branch_id, party_branch_name, community_id, community_name, committee_id, 
-    committee_name
+    committee_name, master_name, master_phone
   </sql>
   <select id="selectByExample" parameterType="com.tencent.wxcloudrun.model.FamilyInfoExample" resultMap="BaseResultMap">
     <!--
@@ -112,7 +114,8 @@
       apartment_id, apartment_name, grid_id, 
       grid_name, party_branch_id, party_branch_name, 
       community_id, community_name, committee_id, 
-      committee_name)
+      committee_name, master_name, master_phone
+      )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{personCount,jdbcType=INTEGER}, 
       #{partyFlag,jdbcType=CHAR}, #{lowIncomeFlag,jdbcType=CHAR}, #{solitudeFlag,jdbcType=CHAR}, 
       #{floorId,jdbcType=INTEGER}, #{floorName,jdbcType=VARCHAR}, #{unitId,jdbcType=INTEGER}, 
@@ -120,7 +123,8 @@
       #{apartmentId,jdbcType=INTEGER}, #{apartmentName,jdbcType=VARCHAR}, #{gridId,jdbcType=INTEGER}, 
       #{gridName,jdbcType=VARCHAR}, #{partyBranchId,jdbcType=INTEGER}, #{partyBranchName,jdbcType=VARCHAR}, 
       #{communityId,jdbcType=INTEGER}, #{communityName,jdbcType=VARCHAR}, #{committeeId,jdbcType=INTEGER}, 
-      #{committeeName,jdbcType=VARCHAR})
+      #{committeeName,jdbcType=VARCHAR}, #{masterName,jdbcType=VARCHAR}, #{masterPhone,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.tencent.wxcloudrun.model.FamilyInfo">
     <!--
@@ -195,6 +199,12 @@
       <if test="committeeName != null">
         committee_name,
       </if>
+      <if test="masterName != null">
+        master_name,
+      </if>
+      <if test="masterPhone != null">
+        master_phone,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -262,6 +272,12 @@
       </if>
       <if test="committeeName != null">
         #{committeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="masterName != null">
+        #{masterName,jdbcType=VARCHAR},
+      </if>
+      <if test="masterPhone != null">
+        #{masterPhone,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -345,6 +361,12 @@
       <if test="committeeName != null">
         committee_name = #{committeeName,jdbcType=VARCHAR},
       </if>
+      <if test="masterName != null">
+        master_name = #{masterName,jdbcType=VARCHAR},
+      </if>
+      <if test="masterPhone != null">
+        master_phone = #{masterPhone,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -374,7 +396,9 @@
       community_id = #{communityId,jdbcType=INTEGER},
       community_name = #{communityName,jdbcType=VARCHAR},
       committee_id = #{committeeId,jdbcType=INTEGER},
-      committee_name = #{committeeName,jdbcType=VARCHAR}
+      committee_name = #{committeeName,jdbcType=VARCHAR},
+      master_name = #{masterName,jdbcType=VARCHAR},
+      master_phone = #{masterPhone,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
