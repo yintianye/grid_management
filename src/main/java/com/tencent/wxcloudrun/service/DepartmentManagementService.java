@@ -79,11 +79,23 @@ public class DepartmentManagementService {
 
             return apartmentInfoMapper.insert(apartmentInfo) == 1;
         } else if (level == 6) {
+            BuildingInfo buildingInfo = new BuildingInfo();
+            buildingInfo.setName(node.getBuildingName());
+            buildingInfo.setApartmentId(node.getApartmentId());
 
+            return buildingInfoMapper.insert(buildingInfo) == 1;
         } else if (level == 7) {
+            UnitInfo unitInfo = new UnitInfo();
+            unitInfo.setName(node.getUnitName());
+            unitInfo.setBuildingId(node.getBuildingId());
 
+            return unitInfoMapper.insert(unitInfo) == 1;
         } else if (level == 8) {
+            FloorInfo floorInfo = new FloorInfo();
+            floorInfo.setName(node.getFloorName());
+            floorInfo.setUnitId(node.getUnitId());
 
+            return floorInfoMapper.insert(floorInfo) == 1;
         }
 
         return false;
